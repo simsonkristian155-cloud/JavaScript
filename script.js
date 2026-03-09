@@ -1,22 +1,28 @@
-let pilihanArray = [];
-
-function buatPilihan(){
+function buatRadio(){
 
 let jumlah = document.getElementById("jumlah").value;
 let container = document.getElementById("container");
 
-container.innerHTML = "";
+pilihanArray = [];
+
+let html = "<h3>Pilih Salah Satu</h3>";
 
 for(let i = 1; i <= jumlah; i++){
 
-container.innerHTML += `
-<label>Pilihan ${i} :</label>
-<input type="text" id="pilihan${i}">
-<br><br>
+let teks = document.getElementById("pilihan"+i).value;
+
+pilihanArray.push(teks);
+
+html += `
+<input type="radio" name="pilih" value="${teks}">
+${teks}
+<br>
 `;
 
 }
 
-container.innerHTML += `<button onclick="buatRadio()">OK</button>`;
+html += `<br><button onclick="inputEmail()">OK</button>`;
+
+container.innerHTML += html;
 
 }
