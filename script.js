@@ -1,78 +1,84 @@
-function buatRadio(){
+let pilihanArray = [];
 
-let jumlah = document.getElementById("jumlah").value;
-let container = document.getElementById("container");
+function buatPilihan() {
+  let jumlah = document.getElementById("jumlah").value;
+  let container = document.getElementById("container");
 
-pilihanArray = [];
+  container.innerHTML = "";
 
-let html = "<h3>Pilih Salah Satu</h3>";
+  for (let i = 1; i <= jumlah; i++) {
+    container.innerHTML += `
+<label>Pilihan ${i} :</label>
+<input type="text" id="pilihan${i}">
+<br><br>
+`;
+  }
 
-for(let i = 1; i <= jumlah; i++){
+  container.innerHTML += `<button onclick="buatRadio()">OK</button>`;
+}
 
-let teks = document.getElementById("pilihan"+i).value;
+function buatRadio() {
+  let jumlah = document.getElementById("jumlah").value;
+  let container = document.getElementById("container");
 
-pilihanArray.push(teks);
+  pilihanArray = [];
 
-html += `
+  let html = "<h3>Pilih Salah Satu</h3>";
+
+  for (let i = 1; i <= jumlah; i++) {
+    let teks = document.getElementById("pilihan" + i).value;
+
+    pilihanArray.push(teks);
+
+    html += `
 <input type="radio" name="pilih" value="${teks}">
 ${teks}
 <br>
 `;
+  }
 
+  html += `<br><button onclick="inputEmail()">OK</button>`;
+
+  container.innerHTML += html;
 }
 
-html += `<br><button onclick="inputEmail()">OK</button>`;
+function inputEmail() {
+  let container = document.getElementById("container");
 
-container.innerHTML += html;
-
-}
-
-
-function inputEmail(){
-
-let container = document.getElementById("container");
-
-container.innerHTML += `
+  container.innerHTML += `
 <br><br>
 <label>Email :</label>
 <input type="text" id="email">
 <br><br>
 <button onclick="cekEmail()">OK</button>
 `;
-
 }
 
+function cekEmail() {
+  let email = document.getElementById("email").value;
 
-function cekEmail(){
+  let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-let email = document.getElementById("email").value;
+  if (!email.match(pattern)) {
+    alert("Email tidak valid, masukkan ulang!");
+    return;
+  }
 
-let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-if(!email.match(pattern)){
-alert("Email tidak valid, masukkan ulang!");
-return;
+  tampilkanHasil();
 }
 
-tampilkanHasil();
+function tampilkanHasil() {
+  let nama = document.getElementById("nama").value;
+  let jumlah = document.getElementById("jumlah").value;
+  let email = document.getElementById("email").value;
 
-}
+  let pilihanDipilih = document.querySelector('input[name="pilih"]:checked',).value;
 
-
-function tampilkanHasil(){
-
-let nama = document.getElementById("nama").value;
-let jumlah = document.getElementById("jumlah").value;
-let email = document.getElementById("email").value;
-
-let pilihanDipilih = document.querySelector('input[name="pilih"]:checked').value;
-
-document.body.innerHTML = `
+  document.body.innerHTML = `
 <h2>
 Hallo, nama saya ${nama}, email ${email}. <br>
 Saya mempunyai sejumlah ${jumlah} pilihan yaitu ${pilihanArray.join(", ")} <br>
 dan saya memilih ${pilihanDipilih}.
 </h2>
 `;
-
 }
