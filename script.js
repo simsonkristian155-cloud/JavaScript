@@ -26,3 +26,18 @@ html += `<br><button onclick="inputEmail()">OK</button>`;
 container.innerHTML += html;
 
 }
+
+
+function inputEmail(){
+
+let container = document.getElementById("container");
+
+container.innerHTML += `
+<br><br>
+<label>Email :</label>
+<input type="text" id="email">
+<br><br>
+<button onclick="cekEmail()">OK</button>
+`;
+
+}
