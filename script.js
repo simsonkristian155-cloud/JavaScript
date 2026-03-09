@@ -67,18 +67,27 @@ function cekEmail() {
   tampilkanHasil();
 }
 
-function tampilkanHasil() {
-  let nama = document.getElementById("nama").value;
-  let jumlah = document.getElementById("jumlah").value;
-  let email = document.getElementById("email").value;
+function tampilkanHasil(){
 
-  let pilihanDipilih = document.querySelector('input[name="pilih"]:checked',).value;
+let nama = document.getElementById("nama").value;
+let jumlah = document.getElementById("jumlah").value;
+let email = document.getElementById("email").value;
 
-  document.body.innerHTML = `
+let pilih = document.querySelector('input[name="pilih"]:checked');
+
+if(!pilih){
+alert("Silakan pilih salah satu pilihan terlebih dahulu!");
+return;
+}
+
+let pilihanDipilih = pilih.value;
+
+document.body.innerHTML = `
 <h2>
 Hallo, nama saya ${nama}, email ${email}. <br>
 Saya mempunyai sejumlah ${jumlah} pilihan yaitu ${pilihanArray.join(", ")} <br>
 dan saya memilih ${pilihanDipilih}.
 </h2>
 `;
+
 }
