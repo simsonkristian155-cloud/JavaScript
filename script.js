@@ -41,3 +41,38 @@ container.innerHTML += `
 `;
 
 }
+
+
+function cekEmail(){
+
+let email = document.getElementById("email").value;
+
+let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+if(!email.match(pattern)){
+alert("Email tidak valid, masukkan ulang!");
+return;
+}
+
+tampilkanHasil();
+
+}
+
+
+function tampilkanHasil(){
+
+let nama = document.getElementById("nama").value;
+let jumlah = document.getElementById("jumlah").value;
+let email = document.getElementById("email").value;
+
+let pilihanDipilih = document.querySelector('input[name="pilih"]:checked').value;
+
+document.body.innerHTML = `
+<h2>
+Hallo, nama saya ${nama}, email ${email}. <br>
+Saya mempunyai sejumlah ${jumlah} pilihan yaitu ${pilihanArray.join(", ")} <br>
+dan saya memilih ${pilihanDipilih}.
+</h2>
+`;
+
+}
