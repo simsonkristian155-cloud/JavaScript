@@ -1,3 +1,5 @@
+let pilihanArray = [];
+
 function buatPilihan(){
 
 let jumlah = document.getElementById("jumlah").value;
