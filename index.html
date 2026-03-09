@@ -1,37 +1,50 @@
 <!doctype html>
 <html>
-<head>
-<title>Tugas JavaScript</title>
-<link rel="stylesheet" href="style.css">
-</head>
+  <head>
+    <title>Tugas JavaScript</title>
 
-<body>
+    <style>
+      body {
+        font-family: Arial;
+        margin: 40px;
+      }
 
-<div style="border-bottom:2px solid black; margin-bottom:20px;">
-<h2>Tugas JavaScript</h2>
+      .header {
+        border-bottom: 2px solid black;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+      }
 
-<p>
-<b>Nama :</b> Simson Kristian <br>
-<b>NIM :</b> foto.jpg <br>
-<img src="foto.jpg" width="120">
-</p>
-</div>
+      img {
+        border-radius: 10px;
+      }
+    </style>
+  </head>
 
-<label>Nama :</label>
-<input type="text" id="nama">
+  <body>
+    <div class="header">
+      <h2>Tugas JavaScript</h2>
 
-<br><br>
+      <b>Nama :</b> Simson Kristian <br />
+      <b>NIM :</b> 245314007 <br /><br />
 
-<label>Jumlah Pilihan :</label>
-<input type="number" id="jumlah" min="1">
+      <img src="foto.png" width="200" />
+    </div>
 
-<br><br>
+    <label>Nama :</label>
+    <input type="text" id="nama" />
 
-<button onclick="buatPilihan()">OK</button>
+    <br /><br />
 
-<div id="container"></div>
+    <label>Jumlah Pilihan :</label>
+    <input type="number" id="jumlah" min="1" />
 
-<script src="script.js"></script>
+    <br /><br />
 
-</body>
+    <button onclick="buatPilihan()">OK</button>
+
+    <div id="container"></div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
